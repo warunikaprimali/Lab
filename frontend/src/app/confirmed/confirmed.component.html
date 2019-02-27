@@ -1,0 +1,67 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header card-header-success">
+            <h4 class="card-title mt-0"> Reservations</h4>
+            <p class="card-category">Confirmed</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="">
+                <th>Lab</th>
+                <th>Date</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Year</th>
+                <th>Reason</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let reservation of reservationservice.reservations">
+                  <td>{{reservation.lab}}</td>
+                  <td>{{reservation.date}}</td>
+                  <td>{{reservation.from}}</td>
+                  <td>{{reservation.to}}</td>
+                  <td>{{reservation.name}}</td>
+                  <td>{{reservation.role}}</td>
+                  <td>{{reservation.year}}</td>
+                  <td>{{reservation.reason}}</td>
+                  <td><a data-toggle="modal" data-target="#deletemodal" class="btn btn-danger btn-round">Delete</a></td>
+                  <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content panel-warning">
+                        <div class="modal-header panel-heading">
+                          <h5 class="modal-title" id="exampleModalLabel">Remove</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <strong><i class="fa fa-warning danger"></i></strong>
+                          <br>
+                          &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; Are You Sure that You want to delete This?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          <form (submit)="delete( reservation._id )">
+                            <button type="submit" class="btn btn-success" >Remove</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

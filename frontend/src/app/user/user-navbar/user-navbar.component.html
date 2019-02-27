@@ -1,0 +1,39 @@
+<nav  class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;z-index: 999999;">
+  <img style="width: 40px;height: 40px;" src="../../../assets/images/UCSC_logo.png">&nbsp;&nbsp;<a class="navbar-brand" style="color:#0db5c9;font-size: 20pt;font-family: 'Dancing Script', cursive" routerLink="/userhomepage">Easy Lab</a>
+
+  <!--<a class="navbar-brand" href="#">Navbar w/ text</a>-->
+  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+  <!--</button>-->
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/userhomepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" [routerLink]="['/userhomepage']" >All Reservations</a>-->
+        <!--&lt;!&ndash;<a class="nav-link" routerLink="/allreservations">All Reservations</a>&ndash;&gt;-->
+      <!--</li>-->
+
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="#">Check Availability</a>-->
+      <!--</li>-->
+    </ul>
+    <span class="navbar-text" *ngIf="userService.loggedIn()">
+   <a class="button" routerLink="/makereservation">Reserve Now</a>
+    </span>
+    <span class="navbar-text" *ngIf="!userService.loggedIn()">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </span>
+    <span class="navbar-text" *ngIf="!userService.loggedIn()">
+      <a class="nav-link" routerLink="/registration">Register</a>
+    </span>
+    <span class="navbar-text" *ngIf="userService.loggedIn()">
+      <a class="nav-link" routerLink="/userprofile">{{userService.getname()}}</a>
+    </span>
+    <span class="navbar-text" *ngIf="userService.loggedIn()">
+      <a class="nav-link" style="cursor: pointer" (click)="logout()">Logout</a>
+    </span>
+
+  </div>
+</nav>

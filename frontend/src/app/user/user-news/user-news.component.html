@@ -1,0 +1,26 @@
+<div  style="background-color:#f7f7f7">
+  <div class="container" >
+
+  <br><br>
+  <h1>News</h1>
+</div>
+<br><br>
+<div class="" *ngFor="let news of newsService.news">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-2">
+            <img style="width:130px;height: 130px;" src="../../../assets/images/speaker.png">
+          </div>
+          <div class="col-lg-10">
+            <div [innerHtml]=news.content></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<br><br>
+</div>

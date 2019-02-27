@@ -1,0 +1,27 @@
+<app-side-nav></app-side-nav>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body class="fixed-nav sticky-footer navbar-clr" id="page-top"  >
+<!-- Navigation-->
+
+<div class="content-wrapper " style="background-color: #e9ecef;">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/allreservations">News</a>
+        <!--</li>-->
+        <!--<li class="breadcrumb-item active">My Dashboard</li>-->
+        <!-- Bootstrap CSS -->
+        <!-- jQuery first, then Bootstrap JS. -->
+        <!-- Nav tabs -->
+    </ol>
+    <h4>Enter News Here</h4>
+<form (submit)="putNews()">
+  <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" name="htmlContent" [(ngModel)]="htmlContent" minHeight="50px" Width="50px" ></app-ngx-editor>
+  <br>
+  <button type="submit" class="btn btn-success">Post News</button>
+</form>
+</div>
+</div>
+</body>
+<app-footer></app-footer>
+

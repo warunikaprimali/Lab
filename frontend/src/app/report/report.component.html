@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body class="fixed-nav sticky-footer navbar-clr" id="page-top"  >
+<!-- Navigation-->
+<app-side-nav></app-side-nav>
+<div class="content-wrapper " style="background-color: #e9ecef;">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/reports">Reports</a>
+        <!--</li>-->
+        <!--<li class="breadcrumb-item active">My Dashboard</li>-->
+        <!-- Bootstrap CSS -->
+        <!-- jQuery first, then Bootstrap JS. -->
+        <!-- Nav tabs -->
+    </ol>
+  </div>
+
+<div class="container">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+<div class="row">
+  <div class="col-lg-5">
+  <label >Month and Year</label>
+  <input id="yearmonth" type="month" name="yearmonth" [(ngModel)]="yearmonth" value="2018-06" (ngModelChange)="getyearmonthcount()" >
+  <div style="display:none" #pdfcontent>
+    <h6> All Users:{{userService.userCount}}</h6>
+    <br>
+    <h6> All Confirmed Reservations:{{reservationservice.cCount}}</h6>
+    <br>
+    <h6> All Removed Reservations:{{ reservationservice.rCount}}</h6>
+    <br>
+    <h6> All Non Confirmed Reservations:{{reservationservice.uCount}}</h6>
+    <br>
+    <h6>Confirmed reservations on {{yrmnth}} Month:{{reservationservice.count}}</h6>
+
+  </div>
+  </div>
+  <div class="col-lg-2">
+  <div class="container">
+    <button (click)="downloadpdf()"  class="btn btn-success">Generate</button>
+  </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+  <!-- /.container-fluid-->
+  <!-- /.content-wrapper-->
+  <app-footer></app-footer>
+
+  <!--Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+
+</div>
+</body>

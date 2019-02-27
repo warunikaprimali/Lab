@@ -1,0 +1,35 @@
+<app-user-navbar></app-user-navbar>
+<div class="back"></div>
+<div class="registration-form">
+  <header>
+    <h1>Sign Up</h1>
+    <p>Fill in all informations</p>
+  </header>
+  <form (submit)="registerData()">
+    <div class="input-section name-section">
+      <input class="name" type="text" name="name" [(ngModel)]="name" placeholder="ENTER YOUR NAME HERE" autocomplete="off"/>
+      <div class="animated-button"><span class="icon-paper-plane"><i class="fa fa-user"></i></span><span class="next-button name"><i class="fa fa-arrow-up"></i></span></div>
+    </div>
+    <div class="input-section email-section folded">
+      <input class="email" type="email" name="email" [(ngModel)]="email" placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off"/>
+      <div class="animated-button"><span class="icon-paper-plane"><i class="fa fa-envelope-o"></i></span><span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
+    </div>
+    <div class="input-section password-section folded">
+      <input class="password" type="password" name="password" [(ngModel)]="password" placeholder="ENTER YOUR PASSWORD HERE"/>
+      <div class="animated-button"><span class="icon-lock"><i class="fa fa-lock"></i></span><span class="next-button password"><i class="fa fa-arrow-up"></i></span></div>
+    </div>
+    <!--<div class="input-section repeat-password-section folded">-->
+      <!--<input class="repeat-password" type="password" placeholder="REPEAT YOUR PASSWORD HERE"/>-->
+      <!--<div class="animated-button"><span class="icon-repeat-lock"><i class="fa fa-lock"></i></span><span class="next-button repeat-password"><i class="fa fa-paper-plane"></i></span></div>-->
+    <!--</div>-->
+
+
+
+    <div class="success">
+      <div class="col-lg-5"></div>
+      <button class="btn btn-info" style="height: 50px;" type="submit" value="SIGNUP">Submit</button>
+    </div>
+
+
+  </form>
+</div>

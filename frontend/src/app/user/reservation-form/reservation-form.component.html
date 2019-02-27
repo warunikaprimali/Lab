@@ -1,0 +1,152 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="container card-header card-header-success" style="background-color: #f7f7f7" >
+          <h3 class="card-title mt-0" >Reserve Now</h3>
+          <p class="card-category">Fill out this form</p>
+        </div>
+        <div class="container">
+
+          <form (submit)="createreservation()">
+            <div class="row">
+              <div class="col-half">
+                <h6>Lab</h6>
+                <div class="input-group">
+                  <div class="input-group input-group-icon">
+                      <select name="lab" [(ngModel)]="lab" id="select1" (ngModelChange)="currentReservations()">
+                        <option>Lab A</option>
+                        <option>Lab B</option>
+                        <option>Lab C</option>
+                        <option>Lab D</option>
+                        <option>Lab E</option>
+                        <option>Lab F</option>
+                      </select>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-half">
+                <h6>Date</h6>
+                <input type="date"  name="date" [(ngModel)]="date" (ngModelChange)="currentReservations()">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-half">
+                <h6>From</h6>
+                <div class="input-group">
+                    <select name="from" [(ngModel)]="from" (ngModelChange)=" checkoverlap()">
+                      <option value="8.00">8.00</option>
+                      <option value="9.00">9.00</option>
+                      <option value="10.00">10.00</option>
+                      <option value="11.00">11.00</option>
+                      <option value="12.00">12.00</option>
+                      <option value="13.00">13.00</option>
+                      <option value="14.00">14.00</option>
+                      <option value="15.00">15.00</option>
+                      <option value="16.00">16.00</option>
+                      <option value="17.00">17.00</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="col-half">
+                <h6>To</h6>
+                <div class="input-group">
+                    <select name="to" [(ngModel)]="to" (ngModelChange)=" checkoverlap()" >
+                      <option value="8.00">8.00</option>
+                      <option value="9.00">9.00</option>
+                      <option value="10.00">10.00</option>
+                      <option value="11.00">11.00</option>
+                      <option value="12.00">12.00</option>
+                      <option value="13.00">13.00</option>
+                      <option value="14.00">14.00</option>
+                      <option value="15.00">15.00</option>
+                      <option value="16.00">16.00</option>
+                      <option value="17.00">17.00</option>
+                      <option value="18.00">18.00</option>
+                    </select>
+                </div>
+              </div>
+              <div *ngIf="showerror" style="color: red"> <small>Already reserved.You can't pick this time.</small></div>
+            </div>
+
+            <div class="row">
+              <div class="col-half">
+                <h6>Role</h6>
+                <div class="input-group">
+                    <select name="role" [(ngModel)]="role" (ngModelChange)="showyear()">
+                      <option value="student">Student</option>
+                      <option value="lecturer">Lecturer</option>
+                      <option value="professor">Professor</option>
+                      <option value="instructor">Instructor</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="col-half"  id="year" style="display: none">
+                <h6>Year</h6>
+                <div class="input-group">
+                      <select   name="year" [(ngModel)]="year" >
+                        <option value="first-year">First Year</option>
+                        <option value="second-year">Second Year</option>
+                        <option value="third-year">Third Year</option>
+                        <option value="fourth-year">Fourth Year</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+
+            <div class="row">
+              <div class="input-group">
+                <div class="col-half">
+                <h6>Reason</h6>
+                </div>
+                <textarea rows="4" cols="50" name="reason" [(ngModel)]="reason"></textarea>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-group">
+                <button type="submit" >Submit</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+    </div>
+
+      <div class="col-lg-3" *ngIf="reservation.lab">
+        <div class="card card-plain">
+          <div class="card-header card-header-success" >
+            <h4 class="card-title mt-0" >{{reservation.lab}}&nbsp;&nbsp;&nbsp;{{reservation.date}}</h4>
+            <p class="card-category">All Reservations</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="">
+                <tr>
+                <th>From</th>
+                <th>To</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr *ngFor="let reservation of reservationservice.reservations">
+                <td>{{reservation.from}}</td>
+                <td>{{reservation.to}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
